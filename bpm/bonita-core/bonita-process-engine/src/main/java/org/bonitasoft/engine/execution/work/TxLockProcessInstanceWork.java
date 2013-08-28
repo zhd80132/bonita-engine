@@ -40,6 +40,8 @@ public abstract class TxLockProcessInstanceWork extends TxBonitaWork {
 
 	@Override
 	protected void afterWork() throws Exception {
-		lockService.unlock(lock);
+		if (lock != null) {
+			lockService.unlock(lock);
+		}
 	}
 }
